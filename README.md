@@ -4,7 +4,7 @@
 
 ### Preview
 
-
+![img](/image/.gif)
 
 This is Sample Application to connect between Android and Bluetooth Low Energy Device. I used Service which is Android Component for constant interaction with BLE device.
 

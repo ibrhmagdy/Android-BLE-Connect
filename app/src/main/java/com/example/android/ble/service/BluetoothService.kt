@@ -15,11 +15,13 @@ import java.util.*
 /**
  * Created by 4z7l(7d4z7l@gmail.com) on 2020-12-15.
  *
- * Contents :
+ * Contents : 블루투스 콜백을 구현한 서비스
+ *
  */
 
 class BluetoothService : Service() {
 
+    //속성을 지속적으로 받기위한 변수?
     private var timer = Timer()
 
     override fun onBind(intent: Intent?): IBinder? = null
@@ -34,6 +36,7 @@ class BluetoothService : Service() {
         stopService()
     }
 
+    // 서비스 시작, mac address를 통해 디바이스 정보 가져온후 콜백 연결,
     private fun startService() {
         Log.e(TAG, "startService")
         bluetoothDevice = bluetoothAdapter.getRemoteDevice(deviceAddress)
@@ -43,6 +46,7 @@ class BluetoothService : Service() {
         startHeartRate()
     }
 
+    //서비스 종료 및 자원 해제
     private fun stopService() {
         Log.e(TAG, "stopService")
         closeGatt()
@@ -55,12 +59,12 @@ class BluetoothService : Service() {
         bluetoothGatt = null
     }
 
+    // 1초마다 심박수 스캔
     private fun startHeartRate() {
         timer = Timer()
         timer.schedule(object : TimerTask() {
             override fun run() {
                 scanHeartRate()
-                getBatteryStatus()
             }
         }, 0, 1000)
     }
@@ -91,16 +95,7 @@ class BluetoothService : Service() {
         }
     }
 
-    private fun getBatteryStatus() {
-        if (bluetoothGatt != null) {
-            val bluetoothGattCharacteristic = bluetoothGatt?.getService(UUIDs.BASIC_SERVICE)
-                ?.getCharacteristic(UUIDs.BASIC_BATTERY_CHARACTERISTIC)
-            if (bluetoothGattCharacteristic != null) {
-                bluetoothGatt!!.readCharacteristic(bluetoothGattCharacteristic)
-            }
-        }
-    }
-
+    // ble의 정보를 broadcast를 통해 전달
     private fun broadcastUpdate(action: String) {
         val intent = Intent(action)
         sendBroadcast(intent)
@@ -113,29 +108,22 @@ class BluetoothService : Service() {
                 val heartRate: Int = characteristic.value[1].toInt()
                 intent.putExtra(HEART_RATE, heartRate)
             }
-            UUIDs.BASIC_BATTERY_CHARACTERISTIC -> {
-                val lastIndex = characteristic.value.size - 1
-
-                val data = characteristic.value
-                Log.e("SEULGI", Arrays.toString(data))
-                val heartRate: Int = characteristic.value[lastIndex].toInt()
-                intent.putExtra(BATTERY_STATE, heartRate)
-            }
         }
         sendBroadcast(intent)
     }
 
+    // 콜백 정의, 여러 속성에 대한 변화가 감지되면 broadcast를 통해 전달
     private val gattCallback = object : BluetoothGattCallback() {
         override fun onConnectionStateChange(gatt: BluetoothGatt?, status: Int, newState: Int) {
             when (newState) {
                 BluetoothProfile.STATE_CONNECTED -> {
                     bluetoothGatt?.discoverServices()
-                    Log.e(TAG, "STATE_CONNECTED")
                     broadcastUpdate(ACTION_GATT_CONNECTED)
+                    Log.e(TAG, "STATE_CONNECTED")
                 }
                 BluetoothProfile.STATE_DISCONNECTED -> {
-                    Log.e(TAG, "STATE_DISCONNECTED")
                     broadcastUpdate(ACTION_GATT_DISCONNECTED)
+                    Log.e(TAG, "STATE_DISCONNECTED")
                 }
             }
         }
@@ -156,14 +144,6 @@ class BluetoothService : Service() {
             status: Int
         ) {
             broadcastUpdate(ACTION_DATA_AVAILABLE, characteristic)
-
-            val data = characteristic.value
-            Log.e("SEULGI", "onCharacteristicRead/setValue: " + Arrays.toString(data))
-            /*when (status) {
-                BluetoothGatt.GATT_SUCCESS -> {
-                    broadcastUpdate(ACTION_DATA_AVAILABLE, characteristic)
-                }
-            }*/
         }
 
         override fun onCharacteristicChanged(

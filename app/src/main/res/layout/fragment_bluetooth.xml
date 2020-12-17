@@ -23,26 +23,16 @@
             android:textColor="@color/black"
             tools:text="BLE Device" />
 
-        <TextView
-            android:id="@+id/txt_battery_info"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="40sp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:layout_marginTop="30dp"
-            android:text="_ _%" />
-
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="60dp"
             android:gravity="center">
 
             <ImageView
                 android:id="@+id/iv_heart"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:src="@drawable/ic_baseline_favorite_24" />
 
             <TextView
@@ -51,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:textColor="@color/black"
-                android:textSize="20sp"
+                android:textSize="36sp"
                 android:text="_ _" />
 
         </LinearLayout>

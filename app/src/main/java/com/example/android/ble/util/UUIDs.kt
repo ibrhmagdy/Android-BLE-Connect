@@ -5,7 +5,7 @@ import java.util.*
 /**
  * Created by 4z7l(7d4z7l@gmail.com) on 2020-12-15.
  *
- * Contents :
+ * Contents : ble 기기의 UUID 목록
  */
 
 object UUIDs {

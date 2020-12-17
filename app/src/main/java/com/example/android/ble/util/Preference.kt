@@ -6,7 +6,7 @@ import android.content.SharedPreferences
 /**
  * Created by 4z7l(7d4z7l@gmail.com) on 2020-12-15.
  *
- * Contents :
+ * Contents : 서비스의 상태 (시작 여부) 저장하고 있느 preference
  */
 
 private fun getPreferences(context: Context): SharedPreferences {

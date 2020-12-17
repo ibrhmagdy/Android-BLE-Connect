@@ -16,6 +16,12 @@ import com.example.android.ble.databinding.FragmentBluetoothBinding
 import com.example.android.ble.service.BluetoothService
 import com.example.android.ble.util.*
 
+/**
+ * Created by 4z7l(7d4z7l@gmail.com) on 2020-12-15.
+ *
+ * Contents : ble에 대한 정보를 띄우는 프래그먼트
+ * create와 동시에 service 시작
+ */
 
 class BluetoothFragment : Fragment() {
 
@@ -111,9 +117,7 @@ class BluetoothFragment : Fragment() {
 
     private fun displayData(intent: Intent) {
         val heartRate = intent.getIntExtra(HEART_RATE, 0)
-        val battery = intent.getIntExtra(BATTERY_STATE, 0)
 
         binding.txtHeartRate.text = heartRate.toString()
-        binding.txtBatteryInfo.text = "$battery%"
     }
 }
