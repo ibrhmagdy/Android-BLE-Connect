@@ -4,19 +4,27 @@
 
 ### Preview
 
-![img](/image/.gif)
+![img](/image/preview1.gif)
 
 This is Sample Application to connect between Android and Bluetooth Low Energy Device. I used Service which is Android Component for constant interaction with BLE device.
 
 1. Connect to the paired BLE device
 
-   The wearable device type of this application is preset as **MI Band 2**. You can change device name to test other BLE device in [HERE]().
+   The wearable device type of this application is preset as **MI Band 2**. You can change device name to test other BLE device in [HERE](https://github.com/4z7l/Android-BLE-Connect/blob/478a7e34848b536700eae9311c761ac1e79ebb28/app/src/main/java/com/example/android/ble/util/BLE.kt#L20).
 
 2. Get the value of wearable device. 
 
-   You can access to heart rate of device by UUID.
+   You can access to **heart rate** through UUID.
+
+<br>
+
+### Diagram
+
+![img](/image/diagram.PNG)
 
 
+
+<br>
 
 ### Reference Site
 
@@ -27,6 +35,8 @@ This is Sample Application to connect between Android and Bluetooth Low Energy D
 [Android Developers | Bluetooth low energy overview](https://developer.android.com/guide/topics/connectivity/bluetooth-le#read)
 
 
+
+<br>
 
 ### License
 
