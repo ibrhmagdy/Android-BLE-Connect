@@ -1,8 +1,8 @@
-## Android Sample Application to connect BLE device
+# Android Sample Application to connect BLE device
 
 
 
-### Preview
+## Preview
 
 ![img](/image/preview1.gif)
 
@@ -18,7 +18,7 @@ This is Sample Application to connect between Android and Bluetooth Low Energy D
 
 <br>
 
-### Diagram
+## Diagram
 
 ![img](/image/diagram.PNG)
 
@@ -26,19 +26,19 @@ This is Sample Application to connect between Android and Bluetooth Low Energy D
 
 <br>
 
-### Reference Site
+## Reference Site
 
-[sentisamosa / mi-band-2-connect](https://github.com/sentisamosa/mi-band-2-connect)
+- [sentisamosa / mi-band-2-connect](https://github.com/sentisamosa/mi-band-2-connect)
 
-[aashari / mi-band-2](https://github.com/aashari/mi-band-2)
+- [aashari / mi-band-2](https://github.com/aashari/mi-band-2)
 
-[Android Developers | Bluetooth low energy overview](https://developer.android.com/guide/topics/connectivity/bluetooth-le#read)
+- [Android Developers | Bluetooth low energy overview](https://developer.android.com/guide/topics/connectivity/bluetooth-le#read)
 
 
 
 <br>
 
-### License
+## License
 
 ```
 Copyright 2020 Seulgi Kim
