@@ -14,14 +14,17 @@ import java.util.*
 
 /**
  * Created by 4z7l(7d4z7l@gmail.com) on 2020-12-15.
- *
- * Contents : 블루투스 콜백을 구현한 서비스
- *
  */
 
+/**
+ * This service implements bluetooth gatt callback to connect BLE device.
+ *
+ */
 class BluetoothService : Service() {
 
-    //속성을 지속적으로 받기위한 변수?
+    /**
+     *
+     */
     private var timer = Timer()
 
     override fun onBind(intent: Intent?): IBinder? = null
@@ -36,7 +39,12 @@ class BluetoothService : Service() {
         stopService()
     }
 
-    // 서비스 시작, mac address를 통해 디바이스 정보 가져온후 콜백 연결,
+    /**
+     * ### Start service
+     * Connect BLE device using Bluetooth information in com.example.android.ble.util.BLE
+     *
+     * Get paired device information by MAC address, and connect gatt callback
+     */
     private fun startService() {
         Log.e(TAG, "startService")
         bluetoothDevice = bluetoothAdapter.getRemoteDevice(deviceAddress)
@@ -46,7 +54,11 @@ class BluetoothService : Service() {
         startHeartRate()
     }
 
-    //서비스 종료 및 자원 해제
+
+    /**
+     * ### Stop service
+     * Stop service and reclaim resources
+     */
     private fun stopService() {
         Log.e(TAG, "stopService")
         closeGatt()
@@ -59,7 +71,10 @@ class BluetoothService : Service() {
         bluetoothGatt = null
     }
 
-    // 1초마다 심박수 스캔
+    /**
+     * Scan heart rate per a minute.
+     * This allows you to get heart rate constantly
+     */
     private fun startHeartRate() {
         timer = Timer()
         timer.schedule(object : TimerTask() {

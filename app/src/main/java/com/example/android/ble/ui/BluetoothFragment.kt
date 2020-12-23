@@ -23,6 +23,10 @@ import com.example.android.ble.util.*
  * create와 동시에 service 시작
  */
 
+/**
+ *
+ *
+ */
 class BluetoothFragment : Fragment() {
 
     private lateinit var binding: FragmentBluetoothBinding
