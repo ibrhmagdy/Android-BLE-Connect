@@ -7,8 +7,7 @@ import android.bluetooth.BluetoothGatt
 /**
  * Created by 4z7l(7d4z7l@gmail.com) on 2020-12-15.
  *
- * Contents : ble 기기의 정보, 콜백 등등을 저장
- * 기본 세팅은 mi band 2
+ * Contents : Save information about BLE device such as BluetoothAdapter, BluetoothGatt, Device Address ..
  */
 
 object BLE {
@@ -17,5 +16,10 @@ object BLE {
     var bluetoothDevice: BluetoothDevice? = null
     var deviceAddress: String? = null
 
+    /**
+     * This is used to find device. Device name is preset as "MI Band 2" which I tested with.
+     * To get other BLE device information, change device name like "Galaxy Watch3".
+     * However, I have not tested on other devices, so I cannot guarantee that this code will work.
+     */
     const val wearableDeviceName: String = "MI Band 2"
 }

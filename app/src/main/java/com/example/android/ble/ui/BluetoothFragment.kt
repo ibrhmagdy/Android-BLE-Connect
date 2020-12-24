@@ -19,14 +19,13 @@ import com.example.android.ble.util.*
 /**
  * Created by 4z7l(7d4z7l@gmail.com) on 2020-12-15.
  *
- * Contents : ble에 대한 정보를 띄우는 프래그먼트
- * create와 동시에 service 시작
+ * Contents :
+ *
+ * Show information get from BLE device such as heart rate
+ *
+ * BluetoothFragment starts BluetoothService as created
  */
 
-/**
- *
- *
- */
 class BluetoothFragment : Fragment() {
 
     private lateinit var binding: FragmentBluetoothBinding
@@ -46,12 +45,18 @@ class BluetoothFragment : Fragment() {
         return binding.root
     }
 
+    /**
+     * Register Broadcast receiver as started
+     */
     override fun onStart() {
         super.onStart()
 
         registerReceiver()
     }
 
+    /**
+     * Reclaim resources and stop service as stopped
+     */
     override fun onStop() {
         super.onStop()
 
@@ -64,6 +69,11 @@ class BluetoothFragment : Fragment() {
         }
     }
 
+    /**
+     * Register Broadcast receiver with actions
+     *
+     * See Also : util.Action
+     */
     private fun registerReceiver() {
         broadcastReceiver = object : BroadcastReceiver() {
             override fun onReceive(context: Context?, intent: Intent) {
@@ -84,6 +94,9 @@ class BluetoothFragment : Fragment() {
         requireActivity().registerReceiver(broadcastReceiver, filter)
     }
 
+    /**
+     * Show heart rate in animation as if the heart is beating
+     */
     private fun initView() {
         if(!isServiceStarted(requireContext()))
             stateDisConnected()
@@ -92,7 +105,6 @@ class BluetoothFragment : Fragment() {
             txtDeviceName.text = BLE.wearableDeviceName
             ivHeart.startAnimation(AnimationUtils.loadAnimation(requireContext(), R.anim.heartbeat))
         }
-
     }
 
     private fun initBLEObject() {
@@ -119,6 +131,9 @@ class BluetoothFragment : Fragment() {
         setServiceState(requireContext(), false)
     }
 
+    /**
+     * Display heart rate data received from BluetoothService though broadcast receiver
+     */
     private fun displayData(intent: Intent) {
         val heartRate = intent.getIntExtra(HEART_RATE, 0)
 

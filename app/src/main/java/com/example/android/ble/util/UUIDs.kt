@@ -5,7 +5,9 @@ import java.util.*
 /**
  * Created by 4z7l(7d4z7l@gmail.com) on 2020-12-15.
  *
- * Contents : ble 기기의 UUID 목록
+ * Contents : UUID list of Bluetooth low energy device
+ *
+ * This application only uses heart rate UUID.
  */
 
 object UUIDs {

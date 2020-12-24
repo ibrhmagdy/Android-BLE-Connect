@@ -110,12 +110,17 @@ class BluetoothService : Service() {
         }
     }
 
-    // ble의 정보를 broadcast를 통해 전달
+    /**
+     * Send BLE information through broadcast
+     */
     private fun broadcastUpdate(action: String) {
         val intent = Intent(action)
         sendBroadcast(intent)
     }
 
+    /**
+     * Send BLE information and data through broadcast
+     */
     private fun broadcastUpdate(action: String, characteristic: BluetoothGattCharacteristic) {
         val intent = Intent(action)
         when (characteristic.uuid) {
@@ -127,7 +132,11 @@ class BluetoothService : Service() {
         sendBroadcast(intent)
     }
 
-    // 콜백 정의, 여러 속성에 대한 변화가 감지되면 broadcast를 통해 전달
+    /**
+     * Define Gatt Callback
+     *
+     * When changes are detected, notify change through broadcast
+     */
     private val gattCallback = object : BluetoothGattCallback() {
         override fun onConnectionStateChange(gatt: BluetoothGatt?, status: Int, newState: Int) {
             when (newState) {

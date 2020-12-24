@@ -15,7 +15,9 @@ import com.example.android.ble.util.BLE.wearableDeviceName
 /**
  * Created by 4z7l(7d4z7l@gmail.com) on 2020-12-15.
  *
- * Contents : 페어링된 ble 기기의 정보 확인 및 연결을 시작
+ * Contents :
+ *
+ * Initiate paired device information and connect
  */
 
 class ConnectFragment : Fragment() {
@@ -34,7 +36,11 @@ class ConnectFragment : Fragment() {
         return binding.root
     }
 
-    // 디바이스 이름을 통해 mac 주소 가져옴 link BLE.wearableDeviceName
+    /**
+     * Get Mac address through device name
+     *
+     * See also : util.BLE.wearableDeviceName
+     */
     private fun initBoundedDevice() {
         val devices: Set<BluetoothDevice> = bluetoothAdapter.bondedDevices
         for (device in devices) {
@@ -47,7 +53,9 @@ class ConnectFragment : Fragment() {
         }
     }
 
-    //클릭하면 fragment 이동
+    /**
+     * When click connect button, start BluetoothFragment
+     */
     private fun initEvent() {
         binding.btnConnect.setOnClickListener {
             if (deviceAddress != null) {
