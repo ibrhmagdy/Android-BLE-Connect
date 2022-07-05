@@ -1,8 +1,11 @@
-package com.example.android.ble.ui
+package com.welie.android.ble.ui
 
+import android.content.ContentValues.TAG
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.android.ble.R
+import android.util.Log
+import com.google.firebase.firestore.FirebaseFirestore
+import com.welie.android.ble.R
 
 /**
  * Created by 4z7l(7d4z7l@gmail.com) on 2020-12-15.
@@ -17,6 +20,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
         initFragment()
     }

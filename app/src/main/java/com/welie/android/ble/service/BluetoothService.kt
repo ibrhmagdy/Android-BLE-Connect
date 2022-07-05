@@ -1,15 +1,15 @@
-package com.example.android.ble.service
+package com.welie.android.ble.service
 
 import android.app.Service
 import android.bluetooth.*
 import android.content.Intent
 import android.os.IBinder
 import android.util.Log
-import com.example.android.ble.util.*
-import com.example.android.ble.util.BLE.bluetoothAdapter
-import com.example.android.ble.util.BLE.bluetoothDevice
-import com.example.android.ble.util.BLE.bluetoothGatt
-import com.example.android.ble.util.BLE.deviceAddress
+import com.welie.android.ble.util.*
+import com.welie.android.ble.util.BLE.bluetoothAdapter
+import com.welie.android.ble.util.BLE.bluetoothDevice
+import com.welie.android.ble.util.BLE.bluetoothGatt
+import com.welie.android.ble.util.BLE.deviceAddress
 import java.util.*
 
 /**

@@ -1,4 +1,4 @@
-package com.example.android.ble.util
+package com.welie.android.ble.util
 
 import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothDevice

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "549138595110",
+    "project_id": "bluetoooth-3c279",
+    "storage_bucket": "bluetoooth-3c279.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:549138595110:android:b706ef3aaa4c1bd020d5e7",
+        "android_client_info": {
+          "package_name": "com.welie.blessedexample"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "549138595110-gs6nbrv7qanvt7ha8koolbja5o5f9k7k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgJ4qrSlcx6dtGonYFoDP-CpE5tltJEm8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "549138595110-gs6nbrv7qanvt7ha8koolbja5o5f9k7k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

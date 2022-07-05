@@ -1,4 +1,4 @@
-package com.example.android.ble.util
+package com.welie.android.ble.util
 
 /**
  * Created by 4z7l(7d4z7l@gmail.com) on 2020-12-15.

@@ -1,20 +1,19 @@
-package com.example.android.ble.ui
+package com.welie.android.ble.ui
 
 import android.app.ProgressDialog
-import android.content.BroadcastReceiver
-import android.content.Context
-import android.content.Intent
-import android.content.IntentFilter
+import android.content.*
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
-import com.example.android.ble.R
-import com.example.android.ble.databinding.FragmentBluetoothBinding
-import com.example.android.ble.service.BluetoothService
-import com.example.android.ble.util.*
+import com.google.firebase.firestore.FirebaseFirestore
+import com.welie.android.ble.R
+import com.welie.android.ble.databinding.FragmentBluetoothBinding
+import com.welie.android.ble.service.BluetoothService
+import com.welie.android.ble.util.*
 
 /**
  * Created by 4z7l(7d4z7l@gmail.com) on 2020-12-15.
@@ -137,6 +136,20 @@ class BluetoothFragment : Fragment() {
     private fun displayData(intent: Intent) {
         val heartRate = intent.getIntExtra(HEART_RATE, 0)
 
-        binding.txtHeartRate.text = heartRate.toString()
+        if(heartRate.toString() != null ) {
+            binding.txtHeartRate.text = heartRate.toString()
+        }
+        else
+        {
+            binding.txtHeartRate.text = "5121"
+
+        }
+        val fireStoreDatabase = FirebaseFirestore.getInstance()
+        val hashMap = hashMapOf<String, Any>(
+            "heartRate" to heartRate.toString()
+        )
+        // use the add() method to create a document inside users collection
+        fireStoreDatabase.collection("HeartRate")
+            .add(hashMap)
     }
 }

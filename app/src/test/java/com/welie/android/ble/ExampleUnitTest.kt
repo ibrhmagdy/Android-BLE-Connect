@@ -1,4 +1,4 @@
-package com.example.android.ble
+package com.welie.android.ble
 
 import org.junit.Test
 

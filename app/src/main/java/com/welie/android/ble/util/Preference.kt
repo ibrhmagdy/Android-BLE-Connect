@@ -1,4 +1,4 @@
-package com.example.android.ble.util
+package com.welie.android.ble.util
 
 import android.content.Context
 import android.content.SharedPreferences
