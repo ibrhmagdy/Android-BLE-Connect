@@ -1,0 +1,13 @@
+reading the following sensors data 
+Beurer FT95 thermometer
+GRX Thermometer (TD-1241)
+Masimo MightySat
+Nonin 3230
+Indiehealth scale
+A&D 352BLE scale
+A&D 651BLE blood pressure meter
+Beurer BM57 blood pressure meter
+Soehnle Connect 300/400 blood pressure meter
+Polar H7/H10/OH1 heartrate monitors
+Contour Next One glucose meter
+Accu-Chek Instant glucose meter
